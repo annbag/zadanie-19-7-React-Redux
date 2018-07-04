@@ -27,14 +27,14 @@ function comments(state = [], action) {
               if (comment.id === action.id) {
                 comment.votes = comment.votes + 1
               }
-              return comment;
+              return {...comment, votes: comment.votes + 1};
             });
         case THUMB_DOWN_COMMENT:
           return state.map(comment => {
               if (comment.id === action.id) {
                 comment.votess = comment.votes - 1
               }
-              return comment;
+              return {...comment, votes: comment.votes - 1};
             });
         default:
             return state;
